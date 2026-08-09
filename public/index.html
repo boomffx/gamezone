@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,14 +26,16 @@
     padding: 0;
 }
 
-html {
-    scroll-behavior: smooth;
-}
-
 body {
     font-family: Arial, sans-serif;
     background: #08080d;
     color: white;
+}
+
+button,
+input,
+textarea {
+    font-family: inherit;
 }
 
 /* NAV */
@@ -48,11 +51,10 @@ nav {
 
     padding: 14px 5%;
 
-    background: rgba(12,12,20,.96);
-
+    background: rgba(15,15,23,.96);
     backdrop-filter: blur(14px);
 
-    border-bottom: 1px solid #282834;
+    border-bottom: 1px solid #292936;
 }
 
 .logo {
@@ -68,44 +70,50 @@ nav {
 .nav-right {
     display: flex;
     align-items: center;
-    gap: 18px;
+    gap: 15px;
 }
 
-.nav-right a {
+nav a {
     color: #ddd;
     text-decoration: none;
 }
 
-.nav-right a:hover {
+nav a:hover {
     color: #ff3c78;
 }
 
 .icon-btn {
-    border: 1px solid #333342;
-    background: #15151e;
+    border: 1px solid #383847;
+
+    background: #171720;
+
     color: white;
 
-    width: 40px;
-    height: 40px;
+    border-radius: 10px;
 
-    border-radius: 50%;
+    padding: 9px 12px;
 
     cursor: pointer;
 
-    font-size: 18px;
+    transition: .2s;
 }
 
 .icon-btn:hover {
+    background: #ff3c78;
     border-color: #ff3c78;
-    transform: scale(1.05);
+    transform: translateY(-2px);
 }
-
-/* USER */
 
 #userBox {
     display: none;
+
     align-items: center;
+
     gap: 8px;
+
+    color: #ddd;
+
+    font-size: 13px;
 }
 
 #userPhoto {
@@ -131,7 +139,7 @@ nav {
 }
 
 .hero h1 {
-    font-size: clamp(45px, 8vw, 80px);
+    font-size: clamp(45px,8vw,80px);
 
     background:
         linear-gradient(
@@ -147,12 +155,15 @@ nav {
 
 .hero p {
     color: #999;
+
     font-size: 18px;
+
     margin-top: 15px;
 }
 
 .search-box {
     width: min(650px,90%);
+
     margin: 35px auto 0;
 }
 
@@ -182,16 +193,18 @@ nav {
 
 .categories {
     display: flex;
+
     justify-content: center;
+
     flex-wrap: wrap;
 
-    gap: 12px;
+    gap: 10px;
 
-    padding: 35px 20px;
+    padding: 30px 20px;
 }
 
 .category {
-    padding: 10px 20px;
+    padding: 10px 18px;
 
     border-radius: 30px;
 
@@ -207,13 +220,17 @@ nav {
 .category:hover,
 .category.active {
     background: #ff3c78;
+
     color: white;
+
+    border-color: #ff3c78;
 }
 
 /* GAMES */
 
 .games-section {
     width: 90%;
+
     max-width: 1400px;
 
     margin: auto;
@@ -223,7 +240,9 @@ nav {
 
 .section-title {
     display: flex;
+
     justify-content: space-between;
+
     align-items: center;
 
     margin-bottom: 30px;
@@ -231,6 +250,10 @@ nav {
 
 .section-title h2 {
     font-size: 35px;
+}
+
+#gameCount {
+    color: #777;
 }
 
 .games {
@@ -245,11 +268,7 @@ nav {
     gap: 25px;
 }
 
-/* CARD */
-
 .card {
-    position: relative;
-
     overflow: hidden;
 
     background: #12121a;
@@ -273,47 +292,20 @@ nav {
 
 .game-image {
     width: 100%;
-    height: 175px;
+
+    height: 170px;
 
     object-fit: cover;
 
     display: block;
 }
 
-.favorite-btn {
-    position: absolute;
-
-    top: 12px;
-    right: 12px;
-
-    width: 42px;
-    height: 42px;
-
-    border-radius: 50%;
-
-    border: 1px solid rgba(255,255,255,.2);
-
-    background: rgba(0,0,0,.7);
-
-    color: white;
-
-    cursor: pointer;
-
-    font-size: 20px;
-
-    z-index: 2;
-}
-
-.favorite-btn.active {
-    color: #ff3c78;
-}
-
 .card-content {
-    padding: 20px;
+    padding: 18px;
 }
 
 .card h3 {
-    margin-bottom: 10px;
+    margin: 7px 0 10px;
 }
 
 .genre {
@@ -328,8 +320,6 @@ nav {
     color: #bbb;
 
     font-size: 12px;
-
-    margin-bottom: 12px;
 }
 
 .card p {
@@ -344,11 +334,17 @@ nav {
     overflow: hidden;
 }
 
+.card-actions {
+    display: grid;
+
+    grid-template-columns: 1fr 45px;
+
+    gap: 8px;
+
+    margin-top: 16px;
+}
+
 .play-btn {
-    margin-top: 18px;
-
-    width: 100%;
-
     padding: 12px;
 
     border: none;
@@ -369,9 +365,28 @@ nav {
     cursor: pointer;
 }
 
+.favorite-card-btn {
+    border: 1px solid #333342;
+
+    background: #191923;
+
+    color: white;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+}
+
+.favorite-card-btn.active {
+    color: #ff3c78;
+
+    border-color: #ff3c78;
+}
+
 /* MODAL */
 
-.modal {
+.modal,
+.panel {
     display: none;
 
     position: fixed;
@@ -392,11 +407,13 @@ nav {
     padding: 20px;
 }
 
-.modal.show {
+.modal.show,
+.panel.show {
     display: flex;
 }
 
-.modal-box {
+.modal-box,
+.panel-box {
     position: relative;
 
     width: min(750px,95%);
@@ -410,6 +427,10 @@ nav {
     border: 1px solid #333342;
 
     border-radius: 18px;
+
+    box-shadow:
+        0 25px 80px
+        rgba(0,0,0,.7);
 }
 
 .close-modal {
@@ -438,6 +459,7 @@ nav {
 
 .modal-image {
     width: 100%;
+
     height: 280px;
 
     object-fit: cover;
@@ -449,12 +471,15 @@ nav {
 
 .modal-content h2 {
     font-size: 32px;
+
     margin: 12px 0;
 }
 
 .description {
     color: #aaa;
+
     line-height: 1.7;
+
     margin-bottom: 20px;
 }
 
@@ -465,7 +490,7 @@ nav {
 
     padding: 20px;
 
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 
     background: #0c0c12;
 
@@ -478,6 +503,16 @@ nav {
 
 .game-info strong {
     color: white;
+}
+
+.modal-actions {
+    display: flex;
+
+    gap: 10px;
+
+    flex-wrap: wrap;
+
+    margin-bottom: 25px;
 }
 
 .website-btn {
@@ -499,11 +534,7 @@ nav {
     text-decoration: none;
 
     font-weight: bold;
-
-    margin-bottom: 30px;
 }
-
-/* REVIEWS */
 
 .rating-section {
     border-top: 1px solid #292936;
@@ -516,7 +547,7 @@ nav {
 
     gap: 5px;
 
-    margin: 15px 0 20px;
+    margin: 15px 0;
 }
 
 .star {
@@ -595,6 +626,8 @@ nav {
 
     justify-content: space-between;
 
+    gap: 10px;
+
     margin-bottom: 8px;
 }
 
@@ -604,47 +637,14 @@ nav {
 
 .review-text {
     color: #aaa;
+
     line-height: 1.5;
 }
 
-/* FAVORITES PANEL */
-
-.panel {
-    display: none;
-
-    position: fixed;
-
-    inset: 0;
-
-    z-index: 4500;
-
-    background: rgba(0,0,0,.8);
-
-    backdrop-filter: blur(8px);
-
-    justify-content: center;
-
-    align-items: center;
-}
-
-.panel.show {
-    display: flex;
-}
+/* FAVORITES */
 
 .panel-box {
-    width: min(850px,94%);
-
-    max-height: 85vh;
-
-    overflow-y: auto;
-
-    background: #12121a;
-
-    border: 1px solid #333342;
-
-    border-radius: 18px;
-
-    padding: 25px;
+    width: min(850px,95%);
 }
 
 .panel-header {
@@ -654,7 +654,13 @@ nav {
 
     align-items: center;
 
-    margin-bottom: 20px;
+    padding: 22px;
+
+    border-bottom: 1px solid #292936;
+}
+
+.panel-content {
+    padding: 22px;
 }
 
 .favorite-item {
@@ -674,44 +680,54 @@ nav {
 }
 
 .favorite-item img {
-    width: 80px;
-    height: 50px;
+    width: 90px;
+
+    height: 55px;
 
     object-fit: cover;
 
     border-radius: 7px;
 }
 
+.favorite-info {
+    flex: 1;
+}
+
+.favorite-info h3 {
+    margin-bottom: 5px;
+}
+
 .remove-favorite {
-    margin-left: auto;
+    border: none;
 
-    background: transparent;
+    background: #29131c;
 
-    border: 1px solid #333;
+    color: #ff668e;
 
-    color: #ff3c78;
+    padding: 9px;
 
-    border-radius: 8px;
-
-    padding: 8px;
+    border-radius: 7px;
 
     cursor: pointer;
 }
 
 /* AI */
 
-.ai-button {
+.ai-launch {
     position: fixed;
 
     right: 22px;
+
     bottom: 22px;
+
+    z-index: 4000;
 
     width: 58px;
     height: 58px;
 
-    border-radius: 50%;
-
     border: none;
+
+    border-radius: 50%;
 
     background:
         linear-gradient(
@@ -726,23 +742,25 @@ nav {
 
     cursor: pointer;
 
-    z-index: 3000;
-
     box-shadow:
-        0 10px 30px rgba(0,0,0,.5);
+        0 10px 35px
+        rgba(0,0,0,.5);
 }
 
-.ai-box {
+.ai-panel {
     display: none;
 
     position: fixed;
 
     right: 22px;
-    bottom: 90px;
 
-    width: min(360px,90%);
+    bottom: 92px;
 
-    height: 500px;
+    z-index: 4500;
+
+    width: min(390px,calc(100% - 30px));
+
+    height: 550px;
 
     background: #12121a;
 
@@ -750,22 +768,23 @@ nav {
 
     border-radius: 18px;
 
-    z-index: 3000;
-
     overflow: hidden;
 
     box-shadow:
-        0 20px 60px rgba(0,0,0,.6);
+        0 20px 70px
+        rgba(0,0,0,.7);
 }
 
-.ai-box.show {
+.ai-panel.show {
     display: flex;
 
     flex-direction: column;
 }
 
 .ai-header {
-    padding: 16px;
+    padding: 17px;
+
+    font-weight: bold;
 
     background:
         linear-gradient(
@@ -773,40 +792,34 @@ nav {
             #ff3c78,
             #8b5cf6
         );
-
-    font-weight: bold;
 }
 
 .ai-messages {
     flex: 1;
 
-    padding: 15px;
-
     overflow-y: auto;
+
+    padding: 15px;
 }
 
 .ai-message {
-    max-width: 85%;
-
-    padding: 10px 12px;
-
-    margin-bottom: 10px;
+    padding: 12px;
 
     border-radius: 12px;
 
-    line-height: 1.4;
+    margin-bottom: 10px;
 
-    font-size: 14px;
+    line-height: 1.5;
 }
 
 .ai-message.bot {
-    background: #20202b;
+    background: #1c1c28;
 }
 
 .ai-message.user {
-    margin-left: auto;
+    background: #291329;
 
-    background: #ff3c78;
+    text-align: right;
 }
 
 .ai-input {
@@ -814,7 +827,7 @@ nav {
 
     gap: 8px;
 
-    padding: 10px;
+    padding: 12px;
 
     border-top: 1px solid #292936;
 }
@@ -822,25 +835,25 @@ nav {
 .ai-input input {
     flex: 1;
 
-    padding: 11px;
-
     background: #0c0c12;
-
-    color: white;
 
     border: 1px solid #333342;
 
-    border-radius: 8px;
+    color: white;
+
+    border-radius: 9px;
+
+    padding: 11px;
 
     outline: none;
 }
 
 .ai-input button {
-    padding: 0 15px;
+    width: 45px;
 
     border: none;
 
-    border-radius: 8px;
+    border-radius: 9px;
 
     background: #ff3c78;
 
@@ -849,7 +862,65 @@ nav {
     cursor: pointer;
 }
 
-/* FOOTER */
+/* AI RESULTS */
+
+.ai-results {
+    margin-top: 10px;
+}
+
+.ai-result {
+    display: flex;
+
+    gap: 10px;
+
+    align-items: center;
+
+    padding: 8px;
+
+    background: #0c0c12;
+
+    border-radius: 8px;
+
+    margin-top: 7px;
+
+    cursor: pointer;
+}
+
+.ai-result img {
+    width: 55px;
+
+    height: 38px;
+
+    object-fit: cover;
+
+    border-radius: 5px;
+}
+
+/* ABOUT */
+
+.about {
+    text-align: center;
+
+    padding: 80px 20px;
+
+    background: #0e0e15;
+}
+
+.about h2 {
+    font-size: 35px;
+
+    margin-bottom: 15px;
+}
+
+.about p {
+    max-width: 650px;
+
+    margin: auto;
+
+    color: #999;
+
+    line-height: 1.7;
+}
 
 footer {
     text-align: center;
@@ -865,17 +936,32 @@ footer span {
     color: #ff3c78;
 }
 
+/* LOADING */
+
+.loading,
+.error {
+    grid-column: 1/-1;
+
+    text-align: center;
+
+    padding: 50px;
+
+    color: #999;
+}
+
 /* MOBILE */
 
 @media(max-width:700px) {
 
     nav {
         flex-direction: column;
-        gap: 12px;
+
+        gap: 13px;
     }
 
     .nav-right {
         flex-wrap: wrap;
+
         justify-content: center;
     }
 
@@ -883,12 +969,36 @@ footer span {
         padding-top: 60px;
     }
 
+    .games-section {
+        width: 92%;
+    }
+
+    .section-title h2 {
+        font-size: 27px;
+    }
+
     .modal-content {
         padding: 20px;
     }
 
     .modal-image {
-        height: 220px;
+        height: 210px;
+    }
+
+    .favorite-item img {
+        width: 70px;
+        height: 45px;
+    }
+
+    .ai-panel {
+        right: 10px;
+        bottom: 80px;
+        width: calc(100% - 20px);
+    }
+
+    .ai-launch {
+        right: 15px;
+        bottom: 15px;
     }
 
 }
@@ -898,6 +1008,8 @@ footer span {
 </head>
 
 <body>
+
+<!-- NAV -->
 
 <nav>
 
@@ -951,11 +1063,15 @@ footer span {
 
 </nav>
 
+<!-- HERO -->
+
 <section
     class="hero"
     id="home">
 
-    <h1>GAMEZONE</h1>
+    <h1>
+        GAMEZONE
+    </h1>
 
     <p>
         Discover your next favorite game 🎮🔥
@@ -971,6 +1087,8 @@ footer span {
     </div>
 
 </section>
+
+<!-- CATEGORIES -->
 
 <div class="categories">
 
@@ -1012,6 +1130,8 @@ footer span {
 
 </div>
 
+<!-- GAMES -->
+
 <section
     class="games-section"
     id="games">
@@ -1037,6 +1157,24 @@ footer span {
         </div>
 
     </div>
+
+</section>
+
+<!-- ABOUT -->
+
+<section
+    class="about"
+    id="about">
+
+    <h2>
+        About GameZone
+    </h2>
+
+    <p>
+        GameZone helps gamers discover games,
+        compare PC requirements, find similar
+        games, save favorites and share reviews.
+    </p>
 
 </section>
 
@@ -1107,21 +1245,37 @@ footer span {
 
             </div>
 
-            <button
-                id="modalFavorite"
-                class="icon-btn"
-                onclick="toggleCurrentFavorite()">
-                ❤️ Add Favorite
-            </button>
+            <div class="modal-actions">
 
-            <a
-                id="modalWebsite"
-                class="website-btn"
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer">
-                🌐 Official Website
-            </a>
+                <button
+                    id="modalFavorite"
+                    class="icon-btn"
+                    onclick="toggleCurrentFavorite()">
+                    ❤️ Add Favorite
+                </button>
+
+                <button
+                    class="icon-btn"
+                    onclick="getSimilarGames()">
+                    🎯 Similar Games
+                </button>
+
+                <button
+                    class="icon-btn"
+                    onclick="openPCCompare()">
+                    ⚙️ Check PC
+                </button>
+
+                <a
+                    id="modalWebsite"
+                    class="website-btn"
+                    href="#"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    🌐 Official Website
+                </a>
+
+            </div>
 
             <div class="rating-section">
 
@@ -1180,8 +1334,7 @@ footer span {
                         id="reviewText"
                         placeholder="Write your review..."
                         maxlength="500"
-                        required>
-                    </textarea>
+                        required></textarea>
 
                     <button
                         class="submit-review"
@@ -1223,8 +1376,63 @@ footer span {
 
         </div>
 
-        <div id="favoritesContainer">
+        <div
+            class="panel-content"
+            id="favoritesContainer">
+
             Loading...
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- PC COMPARE -->
+
+<div
+    class="panel"
+    id="pcPanel">
+
+    <div class="panel-box">
+
+        <div class="panel-header">
+
+            <h2>
+                ⚙️ PC Compatibility
+            </h2>
+
+            <button
+                class="icon-btn"
+                onclick="closePCCompare()">
+                ×
+            </button>
+
+        </div>
+
+        <div class="panel-content">
+
+            <p style="color:#999;margin-bottom:15px">
+                Enter your PC specifications.
+            </p>
+
+            <input
+                id="pcSpecs"
+                class="search-box"
+                style="width:100%;margin:0 0 12px"
+                placeholder="Example: Ryzen 5 3600X, GTX 1660 Ti, 16GB RAM">
+
+            <button
+                class="website-btn"
+                onclick="comparePC()">
+                🔍 Compare
+            </button>
+
+            <div
+                id="pcResult"
+                style="margin-top:20px">
+            </div>
+
         </div>
 
     </div>
@@ -1234,14 +1442,15 @@ footer span {
 <!-- AI -->
 
 <button
-    class="ai-button"
-    onclick="toggleAI()">
+    class="ai-launch"
+    onclick="toggleAI()"
+    title="GameZone AI">
     🤖
 </button>
 
 <div
-    class="ai-box"
-    id="aiBox">
+    class="ai-panel"
+    id="aiPanel">
 
     <div class="ai-header">
         🤖 GameZone AI
@@ -1252,9 +1461,14 @@ footer span {
         id="aiMessages">
 
         <div class="ai-message bot">
-            Yo! 👋 I'm GameZone AI.<br><br>
-            Tell me what kind of game
-            you're looking for 🎮🔥
+
+            Yo! 👋 I'm GameZone AI.
+
+            <br><br>
+
+            Ask me for a game,
+            genre or recommendation 🎮🔥
+
         </div>
 
     </div>
@@ -1265,7 +1479,7 @@ footer span {
 
         <input
             id="aiInput"
-            placeholder="Ask me about games..."
+            placeholder="Try: recommend shooter games..."
             autocomplete="off">
 
         <button>
@@ -1278,9 +1492,13 @@ footer span {
 
 <script>
 
+/* =====================================================
+   STATE
+===================================================== */
+
 let allGames = [];
 
-let currentGame = null;
+let currentGameId = null;
 
 let selectedRating = 0;
 
@@ -1288,22 +1506,46 @@ window.currentUser = null;
 
 let favoriteIds = new Set();
 
+/* =====================================================
+   ELEMENTS
+===================================================== */
+
 const gamesContainer =
-    document.getElementById("gamesContainer");
+    document.getElementById(
+        "gamesContainer"
+    );
+
+const gameCount =
+    document.getElementById(
+        "gameCount"
+    );
 
 const search =
-    document.getElementById("search");
+    document.getElementById(
+        "search"
+    );
 
 const modal =
-    document.getElementById("gameModal");
+    document.getElementById(
+        "gameModal"
+    );
 
-/* =========================
+/* =====================================================
    GOOGLE LOGIN
-========================= */
+===================================================== */
 
 async function handleGoogleLogin(response) {
 
     try {
+
+        if (
+            !response ||
+            !response.credential
+        ) {
+            throw new Error(
+                "Google credential missing"
+            );
+        }
 
         const authResponse =
             await fetch(
@@ -1316,53 +1558,65 @@ async function handleGoogleLogin(response) {
                             "application/json"
                     },
 
-                    body: JSON.stringify({
-                        credential:
-                            response.credential
-                    })
+                    body:
+                        JSON.stringify({
+                            credential:
+                                response.credential
+                        })
                 }
             );
 
-        const data =
+        const authData =
             await authResponse.json();
 
         if (!authResponse.ok) {
-            throw new Error(data.error);
+            throw new Error(
+                authData.error ||
+                "Google authentication failed"
+            );
         }
 
         window.currentUser =
-            data.user;
+            authData.user;
 
-        document
-            .querySelector(".g_id_signin")
-            .style.display = "none";
+        const googleButton =
+            document.querySelector(
+                ".g_id_signin"
+            );
 
-        document
-            .getElementById("userBox")
-            .style.display = "flex";
+        if (googleButton) {
+            googleButton.style.display =
+                "none";
+        }
 
-        document
-            .getElementById("userName")
-            .textContent =
-            data.user.name;
+        document.getElementById(
+            "userName"
+        ).textContent =
+            authData.user.name;
 
-        document
-            .getElementById("userPhoto")
-            .src =
-            data.user.picture || "";
+        document.getElementById(
+            "userPhoto"
+        ).src =
+            authData.user.picture || "";
 
-        document
-            .getElementById("username")
-            .value =
-            data.user.name;
+        document.getElementById(
+            "userBox"
+        ).style.display =
+            "flex";
+
+        document.getElementById(
+            "username"
+        ).value =
+            authData.user.name;
 
         await loadFavorites();
 
-        alert(
-            `Welcome to GameZone, ${data.user.name}! 🎮`
+        console.log(
+            "Logged in:",
+            authData.user
         );
 
-    } catch(error) {
+    } catch (error) {
 
         console.error(error);
 
@@ -1370,48 +1624,54 @@ async function handleGoogleLogin(response) {
             "Google login failed: " +
             error.message
         );
-
     }
-
 }
 
-/* =========================
-   GAMES
-========================= */
+/* =====================================================
+   LOAD GAMES
+===================================================== */
 
 async function loadGames() {
 
     try {
 
         const response =
-            await fetch("/api/games");
+            await fetch(
+                "/api/games"
+            );
 
         if (!response.ok) {
-            throw new Error();
+            throw new Error(
+                "Games API failed"
+            );
         }
 
         allGames =
             await response.json();
 
-        displayGames(allGames);
+        displayGames(
+            allGames
+        );
 
-    } catch(error) {
+    } catch (error) {
+
+        console.error(error);
 
         gamesContainer.innerHTML = `
             <div class="error">
                 ❌ Could not load games.
             </div>
         `;
-
     }
-
 }
+
+/* =====================================================
+   DISPLAY GAMES
+===================================================== */
 
 function displayGames(games) {
 
-    document.getElementById(
-        "gameCount"
-    ).textContent =
+    gameCount.textContent =
         `${games.length} games`;
 
     if (!games.length) {
@@ -1428,75 +1688,154 @@ function displayGames(games) {
     gamesContainer.innerHTML =
         games.map(game => {
 
-            const favorite =
-                favoriteIds.has(Number(game.id));
+            const active =
+                favoriteIds.has(
+                    Number(game.id)
+                );
 
             return `
 
-            <div class="card">
+                <div class="card">
 
-                <button
-                    class="favorite-btn ${
-                        favorite ? "active" : ""
-                    }"
-                    onclick="toggleFavorite(
-                        ${game.id},
-                        '${escapeAttribute(game.title)}',
-                        '${escapeAttribute(game.thumbnail || "")}'
-                    )">
+                    <img
+                        class="game-image"
+                        src="${safe(game.thumbnail)}"
+                        alt="${escapeHtml(game.title)}"
+                        loading="lazy">
 
-                    ${favorite ? "♥" : "♡"}
+                    <div class="card-content">
 
-                </button>
+                        <span class="genre">
+                            ${escapeHtml(
+                                game.genre ||
+                                "Game"
+                            )}
+                        </span>
 
-                <img
-                    class="game-image"
-                    src="${escapeAttribute(game.thumbnail || "")}"
-                    alt="${escapeAttribute(game.title)}"
-                    loading="lazy">
+                        <h3>
+                            ${escapeHtml(
+                                game.title
+                            )}
+                        </h3>
 
-                <div class="card-content">
+                        <p>
+                            ${escapeHtml(
+                                game.short_description ||
+                                "No description available."
+                            )}
+                        </p>
 
-                    <span class="genre">
-                        ${escapeHtml(
-                            game.genre || "Game"
-                        )}
-                    </span>
+                        <div class="card-actions">
 
-                    <h3>
-                        ${escapeHtml(
-                            game.title
-                        )}
-                    </h3>
+                            <button
+                                class="play-btn"
+                                onclick="openGame(${game.id})">
+                                ▶ VIEW GAME
+                            </button>
 
-                    <p>
-                        ${escapeHtml(
-                            game.short_description ||
-                            "No description available."
-                        )}
-                    </p>
+                            <button
+                                class="favorite-card-btn ${active ? "active" : ""}"
+                                onclick="toggleFavorite(${game.id})">
+                                ❤️
+                            </button>
 
-                    <button
-                        class="play-btn"
-                        onclick="openGame(${game.id})">
+                        </div>
 
-                        ▶ VIEW GAME
-
-                    </button>
+                    </div>
 
                 </div>
-
-            </div>
-
             `;
 
         }).join("");
-
 }
 
-/* =========================
+/* =====================================================
+   OPEN GAME
+===================================================== */
+
+async function openGame(gameId) {
+
+    const game =
+        allGames.find(
+            g => g.id == gameId
+        );
+
+    if (!game) return;
+
+    currentGameId =
+        game.id;
+
+    selectedRating = 0;
+
+    updateStars();
+
+    document.getElementById(
+        "modalImage"
+    ).src =
+        game.thumbnail;
+
+    document.getElementById(
+        "modalTitle"
+    ).textContent =
+        game.title;
+
+    document.getElementById(
+        "modalGenre"
+    ).textContent =
+        game.genre ||
+        "Game";
+
+    document.getElementById(
+        "modalDescription"
+    ).textContent =
+        game.short_description ||
+        "No description available.";
+
+    document.getElementById(
+        "modalDeveloper"
+    ).textContent =
+        game.developer ||
+        "-";
+
+    document.getElementById(
+        "modalPublisher"
+    ).textContent =
+        game.publisher ||
+        "-";
+
+    document.getElementById(
+        "modalRelease"
+    ).textContent =
+        game.release_date ||
+        "-";
+
+    document.getElementById(
+        "modalWebsite"
+    ).href =
+        game.game_url ||
+        "#";
+
+    updateFavoriteButton();
+
+    modal.classList.add(
+        "show"
+    );
+
+    loadReviews(
+        game.id
+    );
+}
+
+function closeGame() {
+
+    modal.classList.remove(
+        "show"
+    );
+}
+
+/* =====================================================
    FAVORITES
-========================= */
+===================================================== */
 
 async function loadFavorites() {
 
@@ -1515,49 +1854,62 @@ async function loadFavorites() {
         favoriteIds =
             new Set(
                 favorites.map(
-                    item => Number(item.game_id)
+                    f =>
+                        Number(
+                            f.game_id
+                        )
                 )
             );
 
-    } catch(error) {
+        displayGames(
+            getCurrentGames()
+        );
 
-        console.error(error);
+    } catch (error) {
 
+        console.error(
+            "Favorites:",
+            error
+        );
     }
-
 }
 
-async function toggleFavorite(
-    gameId,
-    title,
-    thumbnail
-) {
+async function toggleFavorite(gameId) {
 
     if (!window.currentUser) {
 
         alert(
-            "Sign in with Google to save favorites 🔐"
+            "Sign in with Google first 🔐"
         );
 
         return;
-
     }
 
-    const id =
-        Number(gameId);
+    const game =
+        allGames.find(
+            g => g.id == gameId
+        );
+
+    if (!game) return;
 
     try {
 
-        if (favoriteIds.has(id)) {
+        if (
+            favoriteIds.has(
+                Number(gameId)
+            )
+        ) {
 
             await fetch(
-                `/api/favorites/${window.currentUser.id}/${id}`,
+                `/api/favorites/${window.currentUser.id}/${gameId}`,
                 {
                     method: "DELETE"
                 }
             );
 
-            favoriteIds.delete(id);
+            favoriteIds.delete(
+                Number(gameId)
+            );
 
         } else {
 
@@ -1571,164 +1923,54 @@ async function toggleFavorite(
                             "application/json"
                     },
 
-                    body: JSON.stringify({
+                    body:
+                        JSON.stringify({
+                            user_id:
+                                window.currentUser.id,
 
-                        user_id:
-                            window.currentUser.id,
+                            game_id:
+                                game.id,
 
-                        game_id:
-                            id,
+                            game_title:
+                                game.title,
 
-                        game_title:
-                            title,
+                            thumbnail:
+                                game.thumbnail,
 
-                        thumbnail:
-                            thumbnail
-
-                    })
+                            genre:
+                                game.genre
+                        })
                 }
             );
 
-            favoriteIds.add(id);
-
+            favoriteIds.add(
+                Number(gameId)
+            );
         }
 
         displayGames(
-            getCurrentlyFilteredGames()
+            getCurrentGames()
         );
-
-        if (
-            document
-                .getElementById("favoritesPanel")
-                .classList.contains("show")
-        ) {
-            loadFavoritePanel();
-        }
 
         updateFavoriteButton();
 
-    } catch(error) {
+    } catch (error) {
+
+        console.error(error);
 
         alert(
             "Could not update favorite."
         );
-
     }
-
 }
 
-async function loadFavoritePanel() {
+function toggleCurrentFavorite() {
 
-    if (!window.currentUser) {
+    if (!currentGameId) return;
 
-        document.getElementById(
-            "favoritesContainer"
-        ).innerHTML = `
-            <p>
-                🔐 Sign in with Google
-                to see your favorites.
-            </p>
-        `;
-
-        return;
-    }
-
-    const response =
-        await fetch(
-            `/api/favorites/${window.currentUser.id}`
-        );
-
-    const favorites =
-        await response.json();
-
-    const container =
-        document.getElementById(
-            "favoritesContainer"
-        );
-
-    if (!favorites.length) {
-
-        container.innerHTML = `
-            <p style="color:#777">
-                You haven't added any favorites yet. ❤️
-            </p>
-        `;
-
-        return;
-    }
-
-    container.innerHTML =
-        favorites.map(item => `
-
-            <div class="favorite-item">
-
-                <img
-                    src="${escapeAttribute(item.thumbnail || "")}"
-                    alt="">
-
-                <strong>
-                    ${escapeHtml(
-                        item.game_title
-                    )}
-                </strong>
-
-                <button
-                    class="remove-favorite"
-                    onclick="
-                        removeFavorite(
-                            ${item.game_id}
-                        )
-                    ">
-
-                    Remove
-
-                </button>
-
-            </div>
-
-        `).join("");
-
-}
-
-async function removeFavorite(gameId) {
-
-    if (!window.currentUser) return;
-
-    await fetch(
-        `/api/favorites/${window.currentUser.id}/${gameId}`,
-        {
-            method: "DELETE"
-        }
+    toggleFavorite(
+        currentGameId
     );
-
-    favoriteIds.delete(
-        Number(gameId)
-    );
-
-    await loadFavoritePanel();
-
-    displayGames(
-        getCurrentlyFilteredGames()
-    );
-
-}
-
-function openFavorites() {
-
-    document
-        .getElementById("favoritesPanel")
-        .classList.add("show");
-
-    loadFavoritePanel();
-
-}
-
-function closeFavorites() {
-
-    document
-        .getElementById("favoritesPanel")
-        .classList.remove("show");
-
 }
 
 function updateFavoriteButton() {
@@ -1738,162 +1980,370 @@ function updateFavoriteButton() {
             "modalFavorite"
         );
 
-    if (!currentGame) return;
+    if (!button) return;
 
-    const active =
+    if (
         favoriteIds.has(
-            Number(currentGame.id)
+            Number(currentGameId)
+        )
+    ) {
+
+        button.textContent =
+            "❤️ Favorited";
+
+    } else {
+
+        button.textContent =
+            "🤍 Add Favorite";
+    }
+}
+
+async function openFavorites() {
+
+    const panel =
+        document.getElementById(
+            "favoritesPanel"
         );
 
-    button.textContent =
-        active
-            ? "❤️ Remove Favorite"
-            : "♡ Add Favorite";
-
-}
-
-async function toggleCurrentFavorite() {
-
-    if (!currentGame) return;
-
-    await toggleFavorite(
-        currentGame.id,
-        currentGame.title,
-        currentGame.thumbnail
-    );
-
-}
-
-/* =========================
-   GAME MODAL
-========================= */
-
-async function openGame(gameId) {
-
-    currentGame =
-        allGames.find(
-            game =>
-                Number(game.id) ===
-                Number(gameId)
-        );
-
-    if (!currentGame) return;
-
-    document.getElementById(
-        "modalImage"
-    ).src =
-        currentGame.thumbnail;
-
-    document.getElementById(
-        "modalTitle"
-    ).textContent =
-        currentGame.title;
-
-    document.getElementById(
-        "modalGenre"
-    ).textContent =
-        currentGame.genre || "Game";
-
-    document.getElementById(
-        "modalDescription"
-    ).textContent =
-        currentGame.short_description ||
-        "No description available.";
-
-    document.getElementById(
-        "modalDeveloper"
-    ).textContent =
-        currentGame.developer || "-";
-
-    document.getElementById(
-        "modalPublisher"
-    ).textContent =
-        currentGame.publisher || "-";
-
-    document.getElementById(
-        "modalRelease"
-    ).textContent =
-        currentGame.release_date || "-";
-
-    document.getElementById(
-        "modalWebsite"
-    ).href =
-        currentGame.game_url || "#";
-
-    selectedRating = 0;
-
-    updateStars();
-
-    updateFavoriteButton();
-
-    modal.classList.add("show");
-
-    await loadReviews(
-        currentGame.id
-    );
-
-}
-
-function closeGame() {
-
-    modal.classList.remove(
+    panel.classList.add(
         "show"
     );
 
-}
+    const container =
+        document.getElementById(
+            "favoritesContainer"
+        );
 
-modal.addEventListener(
-    "click",
-    event => {
+    if (!window.currentUser) {
 
-        if (
-            event.target === modal
-        ) {
-            closeGame();
+        container.innerHTML = `
+            <p style="color:#999">
+                🔐 Sign in with Google to see your favorites.
+            </p>
+        `;
+
+        return;
+    }
+
+    try {
+
+        const response =
+            await fetch(
+                `/api/favorites/${window.currentUser.id}`
+            );
+
+        const favorites =
+            await response.json();
+
+        if (!favorites.length) {
+
+            container.innerHTML = `
+                <p style="color:#777">
+                    You haven't saved any games yet ❤️
+                </p>
+            `;
+
+            return;
         }
 
-    }
-);
+        container.innerHTML =
+            favorites.map(
+                fav => `
 
-/* =========================
+                <div class="favorite-item">
+
+                    <img
+                        src="${safe(fav.thumbnail)}"
+                        alt="">
+
+                    <div class="favorite-info">
+
+                        <h3>
+                            ${escapeHtml(
+                                fav.game_title
+                            )}
+                        </h3>
+
+                        <span class="genre">
+                            ${escapeHtml(
+                                fav.genre ||
+                                "Game"
+                            )}
+                        </span>
+
+                    </div>
+
+                    <button
+                        class="remove-favorite"
+                        onclick="toggleFavorite(${fav.game_id}); openFavorites()">
+                        Remove
+                    </button>
+
+                </div>
+            `
+            ).join("");
+
+    } catch (error) {
+
+        container.innerHTML = `
+            <p style="color:#f66">
+                Could not load favorites.
+            </p>
+        `;
+    }
+}
+
+function closeFavorites() {
+
+    document
+        .getElementById(
+            "favoritesPanel"
+        )
+        .classList.remove(
+            "show"
+        );
+}
+
+/* =====================================================
+   SIMILAR GAMES AI
+===================================================== */
+
+async function getSimilarGames() {
+
+    if (!currentGameId) return;
+
+    openAI();
+
+    addAIMessage(
+        "bot",
+        "🎯 Finding games similar to this one..."
+    );
+
+    try {
+
+        const response =
+            await fetch(
+                "/api/ai/recommend",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body:
+                        JSON.stringify({
+                            gameId:
+                                currentGameId
+                        })
+                }
+            );
+
+        const data =
+            await response.json();
+
+        addAIMessage(
+            "bot",
+            data.message ||
+            "Here are some recommendations:"
+        );
+
+        showAIResults(
+            data.games || []
+        );
+
+    } catch (error) {
+
+        addAIMessage(
+            "bot",
+            "❌ Recommendation system failed."
+        );
+    }
+}
+
+/* =====================================================
+   PC COMPARE
+===================================================== */
+
+function openPCCompare() {
+
+    document
+        .getElementById(
+            "pcPanel"
+        )
+        .classList.add(
+            "show"
+        );
+
+    document.getElementById(
+        "pcResult"
+    ).innerHTML = "";
+}
+
+function closePCCompare() {
+
+    document
+        .getElementById(
+            "pcPanel"
+        )
+        .classList.remove(
+            "show"
+        );
+}
+
+async function comparePC() {
+
+    const pc =
+        document.getElementById(
+            "pcSpecs"
+        ).value.trim();
+
+    const game =
+        document.getElementById(
+            "modalTitle"
+        ).textContent;
+
+    if (!pc) {
+
+        alert(
+            "Enter your PC specs first."
+        );
+
+        return;
+    }
+
+    const result =
+        document.getElementById(
+            "pcResult"
+        );
+
+    result.innerHTML =
+        "🔍 Analyzing your PC...";
+
+    try {
+
+        const response =
+            await fetch(
+                "/api/ai/compare",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type":
+                            "application/json"
+                    },
+
+                    body:
+                        JSON.stringify({
+                            game,
+                            pc
+                        })
+                }
+            );
+
+        const data =
+            await response.json();
+
+        result.innerHTML = `
+
+            <div style="
+                padding:20px;
+                background:#0c0c12;
+                border-radius:12px;
+            ">
+
+                <h2>
+                    ${data.compatible
+                        ? "🟢 Likely Playable"
+                        : "🟠 May Struggle"}
+                </h2>
+
+                <p style="
+                    color:#aaa;
+                    margin:12px 0;
+                    line-height:1.6;
+                ">
+                    ${escapeHtml(
+                        data.message
+                    )}
+                </p>
+
+                <p>
+                    💾 RAM:
+                    ${escapeHtml(
+                        data.yourPC.ram
+                    )}
+                </p>
+
+                <p>
+                    🎮 GPU:
+                    ${escapeHtml(
+                        data.yourPC.gpu
+                    )}
+                </p>
+
+                <p>
+                    🧠 CPU:
+                    ${escapeHtml(
+                        data.yourPC.cpu
+                    )}
+                </p>
+
+            </div>
+        `;
+
+    } catch (error) {
+
+        result.innerHTML =
+            "❌ Could not compare PC.";
+    }
+}
+
+/* =====================================================
    REVIEWS
-========================= */
+===================================================== */
 
 const stars =
     document.querySelectorAll(
         ".star"
     );
 
-stars.forEach(star => {
+stars.forEach(
+    star => {
 
-    star.addEventListener(
-        "click",
-        () => {
+        star.addEventListener(
+            "click",
+            function() {
 
-            selectedRating =
+                selectedRating =
+                    Number(
+                        this.dataset.rating
+                    );
+
+                updateStars();
+            }
+        );
+    }
+);
+
+function updateStars() {
+
+    stars.forEach(
+        star => {
+
+            const rating =
                 Number(
                     star.dataset.rating
                 );
 
-            updateStars();
-
+            star.classList.toggle(
+                "selected",
+                rating <=
+                selectedRating
+            );
         }
     );
-
-});
-
-function updateStars() {
-
-    stars.forEach(star => {
-
-        star.classList.toggle(
-            "selected",
-            Number(star.dataset.rating)
-            <= selectedRating
-        );
-
-    });
-
 }
 
 async function loadReviews(gameId) {
@@ -1929,31 +2379,28 @@ async function loadReviews(gameId) {
         }
 
         container.innerHTML =
-            reviews.map(review => `
+            reviews.map(
+                review => `
 
                 <div class="review">
 
                     <div class="review-header">
 
-                        <strong>
+                        <span>
                             👤
                             ${escapeHtml(
                                 review.username
                             )}
-                        </strong>
+                        </span>
 
                         <span class="review-stars">
-
-                            ${
-                                "★".repeat(
-                                    review.rating
-                                )
-                            }${
-                                "☆".repeat(
-                                    5-review.rating
-                                )
-                            }
-
+                            ${"★".repeat(
+                                review.rating
+                            )}
+                            ${"☆".repeat(
+                                5 -
+                                review.rating
+                            )}
                         </span>
 
                     </div>
@@ -1965,332 +2412,239 @@ async function loadReviews(gameId) {
                     </p>
 
                 </div>
+            `
+            ).join("");
 
-            `).join("");
-
-    } catch(error) {
+    } catch (error) {
 
         container.innerHTML =
-            `<p style="color:#777">
+            `<p style="color:#f66">
                 ❌ Could not load reviews.
             </p>`;
-
     }
-
 }
 
 document
-.getElementById("reviewForm")
-.addEventListener(
-    "submit",
-    async event => {
+    .getElementById(
+        "reviewForm"
+    )
+    .addEventListener(
+        "submit",
+        async function(event) {
 
-        event.preventDefault();
+            event.preventDefault();
 
-        if (!window.currentUser) {
+            if (!window.currentUser) {
 
-            alert(
-                "Please sign in with Google first 🔐"
-            );
-
-            return;
-        }
-
-        if (!selectedRating) {
-
-            alert(
-                "Select a star rating ⭐"
-            );
-
-            return;
-        }
-
-        const review =
-            document
-                .getElementById(
-                    "reviewText"
-                )
-                .value
-                .trim();
-
-        if (!review) return;
-
-        const button =
-            document.querySelector(
-                ".submit-review"
-            );
-
-        button.disabled = true;
-
-        button.textContent =
-            "Saving...";
-
-        try {
-
-            const response =
-                await fetch(
-                    "/api/reviews",
-                    {
-
-                        method: "POST",
-
-                        headers: {
-                            "Content-Type":
-                                "application/json"
-                        },
-
-                        body: JSON.stringify({
-
-                            user_id:
-                                window.currentUser.id,
-
-                            game_id:
-                                currentGame.id,
-
-                            rating:
-                                selectedRating,
-
-                            review:
-                                review
-
-                        })
-
-                    }
+                alert(
+                    "Please sign in with Google first 🔐"
                 );
 
-            const data =
-                await response.json();
-
-            if (!response.ok) {
-                throw new Error(
-                    data.error
-                );
+                return;
             }
 
-            document
-                .getElementById(
+            if (!selectedRating) {
+
+                alert(
+                    "Please select a star rating ⭐"
+                );
+
+                return;
+            }
+
+            const review =
+                document.getElementById(
                     "reviewText"
-                )
-                .value = "";
+                ).value.trim();
 
-            selectedRating = 0;
+            if (!review) return;
 
-            updateStars();
+            try {
 
-            await loadReviews(
-                currentGame.id
-            );
+                const response =
+                    await fetch(
+                        "/api/reviews",
+                        {
+                            method: "POST",
 
-        } catch(error) {
+                            headers: {
+                                "Content-Type":
+                                    "application/json"
+                            },
 
-            alert(error.message);
+                            body:
+                                JSON.stringify({
+                                    user_id:
+                                        window.currentUser.id,
 
+                                    game_id:
+                                        currentGameId,
+
+                                    rating:
+                                        selectedRating,
+
+                                    review
+                                })
+                        }
+                    );
+
+                const data =
+                    await response.json();
+
+                if (!response.ok) {
+
+                    throw new Error(
+                        data.error
+                    );
+                }
+
+                document.getElementById(
+                    "reviewText"
+                ).value = "";
+
+                selectedRating = 0;
+
+                updateStars();
+
+                await loadReviews(
+                    currentGameId
+                );
+
+                alert(
+                    "Review posted! 🔥"
+                );
+
+            } catch (error) {
+
+                alert(
+                    error.message
+                );
+            }
         }
+    );
 
-        button.disabled = false;
-
-        button.textContent =
-            "📝 Submit Review";
-
-    }
-);
-
-/* =========================
+/* =====================================================
    SEARCH
-========================= */
+===================================================== */
 
 search.addEventListener(
     "input",
-    filterGames
+    function() {
+
+        const text =
+            this.value
+                .toLowerCase()
+                .trim();
+
+        const filtered =
+            allGames.filter(
+                game =>
+                    game.title
+                        .toLowerCase()
+                        .includes(text)
+            );
+
+        displayGames(
+            filtered
+        );
+    }
 );
 
-function filterGames() {
+/* =====================================================
+   CATEGORIES
+===================================================== */
 
-    displayGames(
-        getCurrentlyFilteredGames()
+const categoryButtons =
+    document.querySelectorAll(
+        ".category"
     );
 
-}
+categoryButtons.forEach(
+    button => {
 
-function getCurrentlyFilteredGames() {
+        button.addEventListener(
+            "click",
+            function() {
 
-    const text =
-        search.value
-            .toLowerCase()
-            .trim();
-
-    const active =
-        document.querySelector(
-            ".category.active"
-        );
-
-    const category =
-        active?.dataset.category ||
-        "all";
-
-    return allGames.filter(game => {
-
-        const title =
-            String(
-                game.title || ""
-            ).toLowerCase();
-
-        const genre =
-            String(
-                game.genre || ""
-            ).toLowerCase();
-
-        const matchesSearch =
-            !text ||
-            title.includes(text);
-
-        const matchesCategory =
-            category === "all" ||
-            genre.includes(category);
-
-        return (
-            matchesSearch &&
-            matchesCategory
-        );
-
-    });
-
-}
-
-/* =========================
-   CATEGORIES
-========================= */
-
-document
-.querySelectorAll(".category")
-.forEach(button => {
-
-    button.addEventListener(
-        "click",
-        () => {
-
-            document
-                .querySelectorAll(
-                    ".category"
-                )
-                .forEach(
-                    b =>
-                        b.classList.remove(
+                categoryButtons.forEach(
+                    btn =>
+                        btn.classList.remove(
                             "active"
                         )
                 );
 
-            button.classList.add(
-                "active"
-            );
+                this.classList.add(
+                    "active"
+                );
 
-            filterGames();
+                const category =
+                    this.dataset.category;
 
-        }
-    );
+                if (
+                    category ===
+                    "all"
+                ) {
 
-});
+                    displayGames(
+                        allGames
+                    );
 
-/* =========================
-   AI
-========================= */
+                    return;
+                }
+
+                const filtered =
+                    allGames.filter(
+                        game =>
+                            (
+                                game.genre ||
+                                ""
+                            )
+                            .toLowerCase()
+                            .includes(
+                                category
+                            )
+                    );
+
+                displayGames(
+                    filtered
+                );
+            }
+        );
+    }
+);
+
+/* =====================================================
+   AI CHAT
+===================================================== */
 
 function toggleAI() {
 
     document
-        .getElementById("aiBox")
-        .classList.toggle("show");
-
+        .getElementById(
+            "aiPanel"
+        )
+        .classList.toggle(
+            "show"
+        );
 }
 
-document
-.getElementById("aiForm")
-.addEventListener(
-    "submit",
-    async event => {
+function openAI() {
 
-        event.preventDefault();
-
-        const input =
-            document.getElementById(
-                "aiInput"
-            );
-
-        const message =
-            input.value.trim();
-
-        if (!message) return;
-
-        addAIMessage(
-            message,
-            "user"
+    document
+        .getElementById(
+            "aiPanel"
+        )
+        .classList.add(
+            "show"
         );
-
-        input.value = "";
-
-        addAIMessage(
-            "Thinking... 🤖",
-            "bot",
-            "thinking"
-        );
-
-        try {
-
-            const response =
-                await fetch(
-                    "/api/ai",
-                    {
-
-                        method: "POST",
-
-                        headers: {
-                            "Content-Type":
-                                "application/json"
-                        },
-
-                        body: JSON.stringify({
-                            message
-                        })
-
-                    }
-                );
-
-            const data =
-                await response.json();
-
-            const thinking =
-                document.querySelector(
-                    '[data-thinking="true"]'
-                );
-
-            if (thinking)
-                thinking.remove();
-
-            addAIMessage(
-                data.reply ||
-                "Something went wrong.",
-                "bot"
-            );
-
-        } catch(error) {
-
-            addAIMessage(
-                "Sorry, AI is unavailable right now 😢",
-                "bot"
-            );
-
-        }
-
-    }
-);
+}
 
 function addAIMessage(
-    text,
     type,
-    thinking = ""
+    text
 ) {
 
-    const container =
+    const messages =
         document.getElementById(
             "aiMessages"
         );
@@ -2303,22 +2657,197 @@ function addAIMessage(
     div.className =
         `ai-message ${type}`;
 
-    if (thinking) {
-        div.dataset.thinking = "true";
-    }
+    div.innerHTML =
+        escapeHtml(text);
 
-    div.textContent = text;
+    messages.appendChild(
+        div
+    );
 
-    container.appendChild(div);
-
-    container.scrollTop =
-        container.scrollHeight;
-
+    messages.scrollTop =
+        messages.scrollHeight;
 }
 
-/* =========================
-   SECURITY HELPERS
-========================= */
+function showAIResults(games) {
+
+    const messages =
+        document.getElementById(
+            "aiMessages"
+        );
+
+    const wrapper =
+        document.createElement(
+            "div"
+        );
+
+    wrapper.className =
+        "ai-results";
+
+    games.forEach(
+        game => {
+
+            const item =
+                document.createElement(
+                    "div"
+                );
+
+            item.className =
+                "ai-result";
+
+            item.innerHTML = `
+
+                <img
+                    src="${safe(game.thumbnail)}">
+
+                <span>
+                    ${escapeHtml(
+                        game.title
+                    )}
+                </span>
+            `;
+
+            item.onclick =
+                () =>
+                    openGame(
+                        game.id
+                    );
+
+            wrapper.appendChild(
+                item
+            );
+        }
+    );
+
+    messages.appendChild(
+        wrapper
+    );
+
+    messages.scrollTop =
+        messages.scrollHeight;
+}
+
+document
+    .getElementById(
+        "aiForm"
+    )
+    .addEventListener(
+        "submit",
+        async function(event) {
+
+            event.preventDefault();
+
+            const input =
+                document.getElementById(
+                    "aiInput"
+                );
+
+            const message =
+                input.value.trim();
+
+            if (!message) return;
+
+            addAIMessage(
+                "user",
+                message
+            );
+
+            input.value = "";
+
+            addAIMessage(
+                "bot",
+                "🧠 Thinking..."
+            );
+
+            try {
+
+                const response =
+                    await fetch(
+                        "/api/ai/recommend",
+                        {
+                            method: "POST",
+
+                            headers: {
+                                "Content-Type":
+                                    "application/json"
+                            },
+
+                            body:
+                                JSON.stringify({
+                                    query:
+                                        message
+                                })
+                        }
+                    );
+
+                const data =
+                    await response.json();
+
+                const messages =
+                    document.getElementById(
+                        "aiMessages"
+                    );
+
+                const thinking =
+                    messages.lastElementChild;
+
+                if (
+                    thinking &&
+                    thinking.textContent
+                        .includes(
+                            "Thinking"
+                        )
+                ) {
+                    thinking.remove();
+                }
+
+                addAIMessage(
+                    "bot",
+                    data.message ||
+                    "Here are some results 🎮"
+                );
+
+                if (
+                    data.games &&
+                    data.games.length
+                ) {
+
+                    showAIResults(
+                        data.games
+                    );
+                }
+
+            } catch (error) {
+
+                addAIMessage(
+                    "bot",
+                    "❌ AI system is temporarily unavailable."
+                );
+            }
+        }
+    );
+
+/* =====================================================
+   HELPERS
+===================================================== */
+
+function getCurrentGames() {
+
+    const text =
+        search.value
+            .toLowerCase()
+            .trim();
+
+    if (!text) {
+        return allGames;
+    }
+
+    return allGames.filter(
+        game =>
+            game.title
+                .toLowerCase()
+                .includes(text)
+    );
+}
 
 function escapeHtml(text) {
 
@@ -2331,22 +2860,81 @@ function escapeHtml(text) {
         String(text ?? "");
 
     return div.innerHTML;
-
 }
 
-function escapeAttribute(text) {
+function safe(url) {
 
-    return String(text ?? "")
-        .replace(/&/g,"&amp;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#039;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;");
+    const value =
+        String(url || "");
+
+    if (
+        value.startsWith(
+            "https://"
+        ) ||
+        value.startsWith(
+            "http://"
+        )
+    ) {
+        return value;
+    }
+
+    return "";
 }
 
-/* =========================
+/* =====================================================
+   MODAL CLOSE
+===================================================== */
+
+modal.addEventListener(
+    "click",
+    event => {
+
+        if (
+            event.target ===
+            modal
+        ) {
+            closeGame();
+        }
+    }
+);
+
+document
+    .getElementById(
+        "favoritesPanel"
+    )
+    .addEventListener(
+        "click",
+        event => {
+
+            if (
+                event.target.id ===
+                "favoritesPanel"
+            ) {
+                closeFavorites();
+            }
+        }
+    );
+
+document
+    .getElementById(
+        "pcPanel"
+    )
+    .addEventListener(
+        "click",
+        event => {
+
+            if (
+                event.target.id ===
+                "pcPanel"
+            ) {
+                closePCCompare();
+            }
+        }
+    );
+
+/* =====================================================
    START
-========================= */
+===================================================== */
 
 loadGames();
 
@@ -2354,3 +2942,4 @@ loadGames();
 
 </body>
 </html>
+
