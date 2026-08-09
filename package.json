@@ -1,0 +1,1 @@
+{"name":"gamezone","version":"1.0.0","description":"GameZone gaming website","main":"server.js","scripts":{"start":"node server.js"},"dependencies":{"better-sqlite3":"^13.0.3","dotenv":"^16.4.7","express":"^5.1.0","google-auth-library":"^11.0.0"}}
